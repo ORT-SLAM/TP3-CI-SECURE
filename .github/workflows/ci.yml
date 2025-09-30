@@ -1,0 +1,19 @@
+name: CI test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Scan with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+
+      - name: Scan libraries with Snyk
+        uses: snyk/actions/python@master
