@@ -14,9 +14,11 @@ jobs:
 
       - name: Build docker image
         run: docker build -t devsecure-api .
-        
+
       - name: Scan with Trivy
         uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: devsecure-api
 
       - name: Scan libraries with Snyk
         uses: snyk/actions/python@master
