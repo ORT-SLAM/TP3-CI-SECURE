@@ -22,6 +22,8 @@ jobs:
 
       - name: Scan libraries with Snyk
         uses: snyk/actions/python@master
-
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          
       - name: Scan secrets with GitLeaks
         uses: gitleaks/gitleaks-action@v2
