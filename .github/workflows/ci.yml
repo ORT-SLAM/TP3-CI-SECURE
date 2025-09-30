@@ -12,6 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Build docker image
+        run: docker build -t devsecure-api .
+        
       - name: Scan with Trivy
         uses: aquasecurity/trivy-action@0.28.0
 
